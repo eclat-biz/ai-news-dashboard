@@ -5,7 +5,7 @@ from datetime import datetime
 
 # ページ設定
 st.set_page_config(
-    page_title="AI ニュース収集ダッシュボード",
+    page_title="ニュース収集ダッシュボード",
     page_icon="📰",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -114,7 +114,7 @@ st.sidebar.info("Google News の RSS を使用して、指定したキーワー�
 # メインコンテンツ
 st.markdown(f"""
     <div class="dashboard-header">
-        <h1 style="margin:0;">📰 AI ニュース収集ダッシュボード</h1>
+        <h1 style="margin:0;">📰 ニュース収集ダッシュボード</h1>
         <p style="margin-top:10px; color:#5f6368;">「<b>{query}</b>」に関する最新ニュースを一覧表示します</p>
     </div>
 """, unsafe_allow_html=True)
@@ -127,7 +127,7 @@ if not news_items:
     st.warning("ニュースが見つかりませんでした。別のキーワードで試してみてください。")
 else:
     # ニュースをカード型で表示
-    for item in news_items[:20]:
+    for item in news_items[:100]:
         try:
             date_str = item.published
             dt = datetime.strptime(date_str, '%a, %d %b %Y %H:%M:%S %Z')
@@ -152,4 +152,4 @@ else:
         """, unsafe_allow_html=True)
 
 st.markdown("---")
-st.markdown("<center style='color:#5f6368;'>© 2025 AI News Dashboard - Professional Edition</center>", unsafe_allow_html=True)
+st.markdown("<center style='color:#5f6368;'>© 2025 News Dashboard - Professional Edition</center>", unsafe_allow_html=True)
